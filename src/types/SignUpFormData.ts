@@ -10,7 +10,8 @@ export type SignUpFormData = {
   middleInitial: string;
   gender: string;
   birthday: string;
-  address: string;
+  course: string;
+  section: string;
   // Extra, for the club-registration use case (not part of the base activity)
   club: string;
 };
@@ -25,7 +26,8 @@ export const initialFormData: SignUpFormData = {
   middleInitial: "",
   gender: "",
   birthday: "",
-  address: "",
+  course: "",
+  section: "",
   club: "",
 };
 

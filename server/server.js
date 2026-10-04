@@ -29,7 +29,8 @@ db.exec(`
     middleInitial TEXT,
     gender TEXT NOT NULL,
     birthday TEXT NOT NULL,
-    address TEXT NOT NULL,
+    course TEXT NOT NULL,
+    section TEXT NOT NULL,
     club TEXT NOT NULL,
     registeredAt TEXT NOT NULL
   )
@@ -37,7 +38,7 @@ db.exec(`
 
 const REQUIRED_FIELDS = [
   "username", "email", "firstName", "lastName",
-  "gender", "birthday", "address", "club",
+  "gender", "birthday", "course", "section", "club",
 ];
 
 // Create a registration. Note: the password is validated on the client but
@@ -52,8 +53,8 @@ app.post("/api/members", (req, res) => {
 
   const registeredAt = new Date().toISOString();
   const stmt = db.prepare(`
-    INSERT INTO members (username, email, firstName, lastName, middleInitial, gender, birthday, address, club, registeredAt)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO members (username, email, firstName, lastName, middleInitial, gender, birthday, course, section, club, registeredAt)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
   const info = stmt.run(
     data.username,
@@ -63,7 +64,8 @@ app.post("/api/members", (req, res) => {
     data.middleInitial || "",
     data.gender,
     data.birthday,
-    data.address,
+    data.course,
+    data.section,
     data.club,
     registeredAt
   );

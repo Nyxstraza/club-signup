@@ -7,6 +7,9 @@ type Errors = Partial<Record<keyof SignUpFormData, string>>;
 
 const CLUBS = ["Chess Club", "Robotics Club", "Drama Club", "Music Club", "Basketball Club"];
 
+const COURSES = ["BS Computer Science", "BS Information Technology", "BS Business Administration", "BS Accountancy", "BS Nursing"];
+const SECTIONS = ["101", "102", "103", "201", "202", "203", "301", "302", "401"];
+
 function validateShow1(data: SignUpFormData): Errors {
   const errors: Errors = {};
   if (!data.username.trim()) errors.username = "Username is required.";
@@ -24,7 +27,8 @@ function validateShow2(data: SignUpFormData): Errors {
   if (!data.lastName.trim()) errors.lastName = "Last name is required.";
   if (!data.gender) errors.gender = "Please select a gender.";
   if (!data.birthday) errors.birthday = "Birthday is required.";
-  if (!data.address.trim()) errors.address = "Address is required.";
+  if (!data.course) errors.course = "Please select a course.";
+  if (!data.section) errors.section = "Please select a section.";
   if (!data.club) errors.club = "Please select a club.";
   return errors;
 }
@@ -162,9 +166,27 @@ function SignUpPage() {
             <input type="date" name="birthday" value={formData.birthday} onChange={handleChange} />
             {errors.birthday && <p className="error">{errors.birthday}</p>}
 
-            <label>Address</label>
-            <textarea name="address" rows={3} value={formData.address} onChange={handleChange} />
-            {errors.address && <p className="error">{errors.address}</p>}
+            <label>Course</label>
+            <select name="course" value={formData.course} onChange={handleChange}>
+              <option value="">Select a course…</option>
+              {COURSES.map((course) => (
+                <option key={course} value={course}>
+                  {course}
+                </option>
+              ))}
+            </select>
+            {errors.course && <p className="error">{errors.course}</p>}
+
+            <label>Section</label>
+            <select name="section" value={formData.section} onChange={handleChange}>
+              <option value="">Select a section…</option>
+              {SECTIONS.map((section) => (
+                <option key={section} value={section}>
+                  {section}
+                </option>
+              ))}
+            </select>
+            {errors.section && <p className="error">{errors.section}</p>}
 
             <label>Club</label>
             <select name="club" value={formData.club} onChange={handleChange}>

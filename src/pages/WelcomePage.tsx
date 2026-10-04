@@ -26,8 +26,10 @@ function WelcomePage() {
           <dd>{user.gender}</dd>
           <dt>Birthday</dt>
           <dd>{user.birthday}</dd>
-          <dt>Address</dt>
-          <dd>{user.address}</dd>
+          <dt>Course</dt>
+          <dd>{user.course}</dd>
+          <dt>Section</dt>
+          <dd>{user.section}</dd>
           <dt>Club</dt>
           <dd>{user.club}</dd>
         </dl>
