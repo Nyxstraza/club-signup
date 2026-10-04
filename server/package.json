@@ -1,0 +1,16 @@
+{
+  "name": "club-signup-server",
+  "private": true,
+  "version": "0.0.1",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

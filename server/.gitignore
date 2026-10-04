@@ -1,0 +1,5 @@
+node_modules
+club.db
+club.db-journal
+club.db-wal
+club.db-shm
